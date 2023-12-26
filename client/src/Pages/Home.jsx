@@ -38,7 +38,7 @@ const Home = ()=> {
 
           <Stack direction={"row"} justifyContent={"center"} zIndex={"2"}
           position={"absolute"}
-          top={"49%"}
+          top={"69%"}
           right={"25%"}
       alignItems={"center"}
           bgcolor={"white"}

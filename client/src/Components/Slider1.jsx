@@ -14,7 +14,7 @@ const Slider1 = () => {
 
   useEffect(() => {
    
-  axios.get(`https://newsapi.org/v2/everything?q=tesla&from=2023-11-26&sortBy=publishedAt&apiKey=ec9c40f42256400982c1a48a403ec53f`)
+  axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=ec9c40f42256400982c1a48a403ec53f`)
   .then((res)=>{
     setNewsinfo(res.data.articles)
   })
