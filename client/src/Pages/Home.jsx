@@ -1,22 +1,24 @@
 import React, { useState } from "react";
-import { FormControl, InputLabel, Input, Stack, Divider } from "@mui/material";
+import { FormControl, InputLabel, Input, Stack, Divider, Box } from "@mui/material";
 import { CiSearch } from "react-icons/ci";
 import './home.css'
 import axios from "axios";
 import Slider1 from "../Components/Slider1.jsx"
 import Navbar from "../Components/Navbar.jsx";
 
+
 const Home = ()=> {
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [newsData, setNewsData] = useState([]);
 
+  
   const handleSearch = () => {
     axios
       .get(
-        `https://newsapi.org/v2/everything?q=${input1}&from${input2}=&apiKey=ec9c40f42256400982c1a48a403ec53f`
+        `https://newsapi.org/v2/everything?q=${input1}&from=${input2}&apiKey=ec9c40f42256400982c1a48a403ec53f`
       )
-      .then((res) => {
+      .then((res) => {  
         console.log(res.data);
         setNewsData(res.data.articles);
       
@@ -34,9 +36,39 @@ const Home = ()=> {
        <div >
        <Slider1/>
        </div>
+       <Box
+       direction={"row"} display={"flex"} justifyContent={"flex-start"} zIndex={"1"}
+       position={"absolute"}
+       top={"6%"}
+       left={"5%"}
+       padding={"5px"}
+   alignItems={"center"}
+       fontSize={"30px"}
+       color={"white"}
+       width={"50%"}
+       height={"2rem"}
+       borderRadius={"10px"}
+       fontWeight={"700"}
        
-
-          <Stack direction={"row"} justifyContent={"center"} zIndex={"2"}
+       >TOP NEWS</Box>
+       
+          <Box
+          direction={"row"} display={"flex"} justifyContent={"flex-start"} zIndex={"1"}
+          position={"absolute"}
+          top={"63%"}
+          right={"25%"}
+          padding={"5px"}
+      alignItems={"center"}
+          fontSize={"30px"}
+          color={"white"}
+          width={"50%"}
+          height={"2rem"}
+          borderRadius={"10px"}
+          fontWeight={"700"}
+          
+          
+          >Search The News below</Box>
+          <Stack direction={"row"} justifyContent={"center"} zIndex={"1"}
           position={"absolute"}
           top={"69%"}
           right={"25%"}
@@ -54,7 +86,7 @@ const Home = ()=> {
               id="search"
               aria-describedby="my-helper-text"
               onChange={(e) => setInput1(e.target.value)}
-           />
+          />
             
               
             
@@ -73,11 +105,14 @@ const Home = ()=> {
         <MenuItem onClick={setInput2('2018')}>2018</MenuItem>
       </Menu>
     </Dropdown> */}
-          <FormControl >
+          <FormControl  
+         
+          >
           <div className="contanier d-flex justify-content-center  align-items-center">
-          <InputLabel  htmlFor="search">Sort by Date</InputLabel>  
+          <InputLabel  htmlFor="search"></InputLabel>  
             <Input
               id="search"
+              type="date"
               aria-describedby="my-helper-text"
               onChange={(e) => setInput2(e.target.value)}
            />
@@ -85,10 +120,19 @@ const Home = ()=> {
               
             
           </div>
+       
           </FormControl>
+        
+       
+         {/* <Select
+         
+          defaultValue={"popularity"}>
+      <Option    value={"popularity"} onChange={()=>(handleSort)}>popularity</Option>
+      <Option value={"relevancy"} onChange={()=>(handleSort)}>relevancy</Option>
+    </Select> */}
+
           <Divider variant="horizonntal"/>
          
-
           <CiSearch fontSize={"25px"}
             cursor={"pointer"}
              onClick={handleSearch} />

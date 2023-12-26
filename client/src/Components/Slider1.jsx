@@ -24,6 +24,12 @@ const Slider1 = () => {
   return (
    <>
      <Swiper
+     style={{
+      "--swiper-navigation-size": "45px",
+      "--swiper-navigation-top-offset": "50%",
+      "--swiper-navigation-sides-offset": "40px",
+      "--swiper-navigation-color": "#fff"
+    }}    
         spaceBetween={30}
         effect={'fade'}
         navigation={true}
@@ -34,6 +40,7 @@ const Slider1 = () => {
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="mySwiper"
       >
+
         {newsinfo.map((elem , key)=>{
 
 
@@ -41,7 +48,7 @@ if(key<10){
   return(
     <>
     <SwiperSlide>
-              <div className="slide"><img src={elem.urlToImage} alt="" /></div>
+              <div className="slide"><img src={elem.urlToImage} alt="" /><div className='slidetext'>{elem.title}</div></div>
              
             </SwiperSlide></>
     )
