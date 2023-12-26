@@ -16,6 +16,7 @@ const Slider1 = () => {
    
   axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=ec9c40f42256400982c1a48a403ec53f`)
   .then((res)=>{
+    console.log(res)
     setNewsinfo(res.data.articles)
   })
      
@@ -47,15 +48,25 @@ const Slider1 = () => {
 if(key<10){
   return(
     <>
-    <SwiperSlide>
-              <div className="slide"><img src={elem.urlToImage} alt="" /><div className='slidetext'>{elem.title}</div></div>
+    <div key={key}
+    >
+    <SwiperSlide >
+              <div  className="slide" ><img src={elem.urlToImage}  alt="" />
+              <div className='slidetext'   >{elem.title}</div></div>
              
-            </SwiperSlide></>
+            </SwiperSlide>
+    </div>
+    </>
     )
 }
-return(
-  <></>
-)
+else{
+  return(
+    <>
+    <div key={key}> </div>
+    </>
+  )
+}
+
         }
         )}
         

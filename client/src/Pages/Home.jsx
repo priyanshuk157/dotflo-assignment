@@ -142,28 +142,33 @@ const Home = ()=> {
         
       </div>
       <div className="container justify-content-center mt-5 p-5 border flex-wrap d-flex gap-5">
-        {newsData.map((data , key ) =>  {
+        {newsData.map((data , key) =>  {
          
 
-if(key<20){
+
   return (
-    <>
-     <div className="card w-25" >
+    
+     <div key={key} className="card w-25" >
       <div className="card-body">
-        <img src={data.urlToImage} alt="" />
-        <h5 className="card-title">{data.title}</h5>
-        <p className="card-text">
+        <img  src={data.urlToImage} alt="" />
+        <h5  className="card-title">{data.title}</h5>
+        <p  className="card-text">
        {data.abstract}
         </p>
         <a href={data.web_url} className="btn btn-primary">
           View Article
         </a>
       </div>
-    </div></>
+    </div>
    
   )
-}
-          return(<></>)  
+
+// else{
+//   return(<>
+//   <div key={key}></div>
+//   </>) 
+// }
+           
           
         })}
       </div>
