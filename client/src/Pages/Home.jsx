@@ -47,7 +47,7 @@ const Home = ()=> {
        color={"white"}
        width={"50%"}
        height={"2rem"}
-       borderRadius={"10px"}
+       borderRadius={"11px"}
        fontWeight={"700"}
        
        >TOP NEWS</Box>
