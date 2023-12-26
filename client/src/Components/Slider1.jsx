@@ -18,7 +18,7 @@ const Slider1 = () => {
   .then((res)=>{
     setNewsinfo(res.data.articles)
   })
-    
+     
   }, [])
   
   return (
