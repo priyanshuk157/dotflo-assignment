@@ -27,7 +27,7 @@ const Slider1 = () => {
      style={{
       "--swiper-navigation-size": "45px",
       "--swiper-navigation-top-offset": "50%",
-      "--swiper-navigation-sides-offset": "40px",
+      "--swiper-navigation-sides-offset": "41px",
       "--swiper-navigation-color": "#fff"
     }}    
         spaceBetween={30}
